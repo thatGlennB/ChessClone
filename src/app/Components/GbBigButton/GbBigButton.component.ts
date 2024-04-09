@@ -9,7 +9,7 @@ import { ChangeDetectionStrategy, Component, HostBinding, Input } from '@angular
   ],
   templateUrl: './GbBigButton.component.html',
   changeDetection: ChangeDetectionStrategy.OnPush,
-  styleUrl: './GbBigButton.component.css',
+  styleUrl: './GbBigButton.component.scss',
 })
 export class GbBigButtonComponent {
   @Input() maxWidth:number = 450;
