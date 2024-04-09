@@ -9,7 +9,6 @@ import { NgbNavModule } from '@ng-bootstrap/ng-bootstrap';
     CommonModule, NgbNavModule
   ],
   templateUrl: './Nav.component.html',
-  styleUrl: './Nav.component.css',
   changeDetection: ChangeDetectionStrategy.OnPush,
 })
 export class NavComponent {

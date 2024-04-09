@@ -1,6 +1,6 @@
 import { CommonModule } from '@angular/common';
 import { ChangeDetectionStrategy, Component } from '@angular/core';
-import { GbBigButtonComponent } from '../Button/Button.component';
+import { GbBigButtonComponent } from '../GbBigButton/GbBigButton.component';
 
 @Component({
   selector: 'app-landing-page',
@@ -9,7 +9,6 @@ import { GbBigButtonComponent } from '../Button/Button.component';
     CommonModule, GbBigButtonComponent
   ],
   templateUrl: './LandingPage.component.html',
-  styleUrl: './LandingPage.component.css',
   changeDetection: ChangeDetectionStrategy.OnPush,
 })
 export class LandingPageComponent { }
