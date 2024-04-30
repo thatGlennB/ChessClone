@@ -4,7 +4,7 @@ import { RegistrationSkillLevelComponent } from '../RegistrationSkillLevel/Regis
 import { RegistrationThemeComponent } from '../RegistrationTheme/RegistrationTheme.component';
 import { RegistrationEmailPasswordComponent } from '../RegistrationEmailPassword/RegistrationEmailPassword.component';
 import { LoginDataService } from '../../Services/LoginData.service';
-import { Observable, map } from 'rxjs';
+import { Observable, map, tap } from 'rxjs';
 import { NewUser } from '../../Models/NewUser';
 import { RegistrationUsernameComponent } from '../RegistrationUsername/RegistrationUsername.component';
 
@@ -33,7 +33,8 @@ export class RegistrationComponent {
       } else {
         return -1; 
       }
-    })
+    }),
+    tap(value => console.log(value))
   );
   constructor(private _user:LoginDataService){
 

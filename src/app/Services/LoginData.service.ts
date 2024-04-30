@@ -26,9 +26,13 @@ export class LoginDataService {
   get UserData():Observable<NewUser>{
     return this._user.asObservable();
   }
-  set UserData(value: NewUser){
-    this._user.next(value);
-  }
 
+  set SkillLevel(value:number){
+    const previousValue = this._user.value;
+    previousValue.SkillLevel = value;
+    this._user.next(
+      previousValue
+    );
+  }
 
 }

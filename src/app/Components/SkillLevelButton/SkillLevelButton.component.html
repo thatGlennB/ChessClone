@@ -1,12 +1,14 @@
-<div (click)="OnClick()">
-    <div>
-        <div>
-            <span>{{Title}}</span>
-            <span *ngIf="Subtitle.length > 0">{{Subtitle}}</span>
+<div class="d-flex justify-content-between border rounded m-2 bg-dark p-3" [class]="(currentSkillLevel|async)?'border-primary':'border-light'" (click)="OnClick()">
+    <div class="d-flex">
+        <div class="d-flex flex-column">
+            <h3 class="text-white">{{Title}}</h3>
+            <span class="text-white" *ngIf="Subtitle.length > 0">{{Subtitle}}</span>
         </div>
-        <i *ngIf="IsClicked" class="fa-solid fa-check"></i>
+        <div>
+            <i *ngIf="IsClicked" class="text-primary fa-solid fa-check"></i>
+        </div>
     </div>
-    <div>
-        <i class="fa-solid" [class]="IconClassValue"></i>
+    <div class="d-flex align-items-center justify-content-center">
+        <i class="fa-solid text-white fa-xl" [class]="IconClassValue"></i>
     </div>
 </div>
