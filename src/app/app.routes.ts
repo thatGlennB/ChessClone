@@ -3,6 +3,6 @@ import { LandingPageComponent } from './Components/LandingPage/LandingPage.compo
 import { RegistrationComponent } from './Components/Registration/Registration.component';
 
 export const routes: Routes = [
-    { path:'', component: LandingPageComponent },
-    { path:'registration', component: RegistrationComponent }
+    { path:'registration', component: RegistrationComponent },
+    { path:'', component: LandingPageComponent }
 ];
