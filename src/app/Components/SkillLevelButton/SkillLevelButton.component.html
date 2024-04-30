@@ -1,0 +1,12 @@
+<div (click)="OnClick()">
+    <div>
+        <div>
+            <span>{{Title}}</span>
+            <span *ngIf="Subtitle.length > 0">{{Subtitle}}</span>
+        </div>
+        <i *ngIf="IsClicked" class="fa-solid fa-check"></i>
+    </div>
+    <div>
+        <i class="fa-solid" [class]="IconClassValue"></i>
+    </div>
+</div>

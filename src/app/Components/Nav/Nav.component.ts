@@ -12,5 +12,7 @@ import { NgbNavModule } from '@ng-bootstrap/ng-bootstrap';
   changeDetection: ChangeDetectionStrategy.OnPush,
 })
 export class NavComponent {
-
+  OnClickSignup():void{
+    // navigate to login page depending on current user data
+  }
  }
