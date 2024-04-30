@@ -6,4 +6,5 @@ export interface NewUser {
     Theme:number;
     Premium:boolean;
     Notify:boolean;
+    SkillLevel:number;
  }

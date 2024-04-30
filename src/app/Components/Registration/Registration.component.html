@@ -1,6 +1,6 @@
-<h1>What is your chess skill level?</h1>
-<h3>A starting point for match pairings</h3>
-<app-skill-level-button [Title]="'New to Chess'" [Subtitle]="'Most Common'" [IconClassValue]="'fa-chess'"></app-skill-level-button>
-<app-skill-level-button [Title]="'Beginner'" [IconClassValue]="'fa-chess'"></app-skill-level-button>
-<app-skill-level-button [Title]="'Intermediate'" [IconClassValue]="'fa-chess'"></app-skill-level-button>
-<app-skill-level-button [Title]="'Advanced'" [IconClassValue]="'fa-chess'"></app-skill-level-button>
+<div [ngSwitch]="(displayMode|async)">
+    <app-registration-skill-level *ngSwitchCase="0"></app-registration-skill-level>
+    <app-registration-email-password *ngSwitchCase="1"></app-registration-email-password>
+    <app-registration-theme *ngSwitchCase="2"></app-registration-theme>
+    <app-registration-username *ngSwitchCase="3"></app-registration-username>
+</div>
