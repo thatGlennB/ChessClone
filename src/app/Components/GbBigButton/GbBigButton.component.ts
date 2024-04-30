@@ -15,6 +15,7 @@ export class GbBigButtonComponent {
   @Input() maxWidth:number = 450;
   @Input() titleText:string = "";
   @Input() subtitleText:string = "";
+  @Input() iconClassValue:string = "fa-chess"
   @Input() customClasses:Array<string> = [];
   @HostBinding('style.max-width.px') get maxWidthPx(){
     return this.maxWidth;

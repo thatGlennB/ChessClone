@@ -1,6 +1,8 @@
 <button type="button" class="btn btn-lg my-2 w-100 shadow" [class]="customClasses" [style.max-width.px]="maxWidth" [style.box-shadow]="'0 10px #000'">
     <div class="d-flex align-items-center">
-        <div class="gb-danger" style="height: 50px; width: 50px;">z</div>
+        <div class="me-4 d-flex align-items-center justify-content-center" style="height: 50px; width: 50px;">
+            <i class="text-light fa-solid fa-lg" [class]="iconClassValue"></i>
+        </div>
         <div class="d-flex flex-column">
             <h3 class="text-start text-light gb-button-text"><b>{{titleText}}</b></h3>
             <p class="fs-6 text-start text-light gb-button-text">{{subtitleText}}</p>
