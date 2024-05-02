@@ -1,7 +1,7 @@
 import { CommonModule, NgIf } from '@angular/common';
 import { ChangeDetectionStrategy, Component, EventEmitter, Input, Output } from '@angular/core';
 import { Observable, map, of } from 'rxjs';
-import { NewUser } from '../../Models/NewUser';
+import { NewUser } from '../../../Models/NewUser';
 import { RegistrationSkillLevelComponent } from '../RegistrationSkillLevel/RegistrationSkillLevel.component';
 
 @Component({

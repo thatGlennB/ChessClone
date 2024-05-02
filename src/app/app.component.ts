@@ -1,9 +1,9 @@
 import { Component } from '@angular/core';
 import { CommonModule } from '@angular/common';
 import { RouterOutlet } from '@angular/router';
-import { NgbdAccordionBasic } from './Components/Accordion-basic/Accordion-basic.component';
-import { NavComponent } from './Components/Nav/Nav.component';
-import { LandingPageComponent } from './Components/LandingPage/LandingPage.component';
+import { NgbdAccordionBasic } from './Components/Elements/Accordion-basic/Accordion-basic.component';
+import { NavComponent } from './Components/Elements/Nav/Nav.component';
+import { LandingPageComponent } from './Components/Pages/LandingPage/LandingPage.component';
 
 @Component({
   selector: 'app-root',

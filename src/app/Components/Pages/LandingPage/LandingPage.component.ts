@@ -1,7 +1,7 @@
 import { CommonModule } from '@angular/common';
 import { ChangeDetectionStrategy, Component } from '@angular/core';
-import { GbBigButtonComponent } from '../GbBigButton/GbBigButton.component';
-import { NavComponent } from '../Nav/Nav.component';
+import { GbBigButtonComponent } from '../../Elements/GbBigButton/GbBigButton.component';
+import { NavComponent } from '../../Elements/Nav/Nav.component';
 
 @Component({
   selector: 'app-landing-page',

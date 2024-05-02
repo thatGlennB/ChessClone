@@ -1,21 +1,20 @@
 import { CommonModule, NgSwitch, NgSwitchCase } from '@angular/common';
 import { ChangeDetectionStrategy, Component } from '@angular/core';
-import { RegistrationSkillLevelComponent } from '../RegistrationSkillLevel/RegistrationSkillLevel.component';
-import { RegistrationThemeComponent } from '../RegistrationTheme/RegistrationTheme.component';
-import { RegistrationEmailPasswordComponent } from '../RegistrationEmailPassword/RegistrationEmailPassword.component';
-import { LoginDataService } from '../../Services/LoginData.service';
+import { RegistrationSkillLevelComponent } from '../../Elements/RegistrationSkillLevel/RegistrationSkillLevel.component';
+import { RegistrationThemeComponent } from '../../Elements/RegistrationTheme/RegistrationTheme.component';
+import { RegistrationEmailPasswordComponent } from '../../Elements/RegistrationEmailPassword/RegistrationEmailPassword.component';
+import { LoginDataService } from '../../../Services/LoginData.service';
 import { Observable, map, tap } from 'rxjs';
-import { NewUser } from '../../Models/NewUser';
-import { RegistrationUsernameComponent } from '../RegistrationUsername/RegistrationUsername.component';
+import { NewUser } from '../../../Models/NewUser';
+import { RegistrationUsernameComponent } from '../../Elements/RegistrationUsername/RegistrationUsername.component';
 
 @Component({
-  selector: 'app-registration',
+  selector: 'app-registration-page',
   standalone: true,
   imports: [
     CommonModule,RegistrationSkillLevelComponent, RegistrationThemeComponent, RegistrationEmailPasswordComponent, NgSwitch, NgSwitchCase, RegistrationUsernameComponent
   ],
-  templateUrl: './Registration.component.html',
-  styleUrl: './Registration.component.scss',
+  templateUrl: './RegistrationPage.component.html',
   changeDetection: ChangeDetectionStrategy.OnPush,
 })
 export class RegistrationComponent {
