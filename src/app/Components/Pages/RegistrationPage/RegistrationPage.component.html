@@ -1,6 +1,9 @@
+<h1 class="text-white">{{firstHeader}}</h1>
+<h3 class="text-white">{{secondHeader}}</h3>
 <div [ngSwitch]="(displayMode|async)">
     <app-registration-skill-level *ngSwitchCase="0"></app-registration-skill-level>
     <app-registration-email-password *ngSwitchCase="1"></app-registration-email-password>
     <app-registration-theme *ngSwitchCase="2"></app-registration-theme>
     <app-registration-username *ngSwitchCase="3"></app-registration-username>
 </div>
+<button type="button" class="btn btn-primary" (click)="OnSubmit()">Continue</button>

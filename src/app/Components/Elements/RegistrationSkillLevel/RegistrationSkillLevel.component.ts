@@ -13,10 +13,4 @@ import { LoginDataService } from '../../../Services/LoginData.service';
   changeDetection: ChangeDetectionStrategy.OnPush,
 })
 export class RegistrationSkillLevelComponent {
-  constructor(private _registration:LoginDataService){ }
-
-  // TODO move this button to parent / separate module
-  OnSubmit(){
-    this._registration.Confirm();
-  }
  }
