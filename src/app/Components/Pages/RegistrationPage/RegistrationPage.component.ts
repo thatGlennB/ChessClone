@@ -19,7 +19,7 @@ import { RegistrationUsernameComponent } from '../../Elements/RegistrationUserna
 })
 export class RegistrationComponent {
 
-  displayMode:Observable<number> = this._user.UserData.pipe(
+  displayMode:Observable<number> = this._user.Confirmed.pipe(
     map<NewUser,number>(value => {
       if(value.SkillLevel < 0){
         return 0;
@@ -33,7 +33,7 @@ export class RegistrationComponent {
         return -1; 
       }
     }),
-    tap(value => console.log(value))
+    // tap(value => console.log("Display mode: " + value))
   );
   constructor(private _user:LoginDataService){
 

@@ -1,8 +1,8 @@
 import { CommonModule, NgIf } from '@angular/common';
-import { ChangeDetectionStrategy, Component, EventEmitter, Input, Output } from '@angular/core';
-import { Observable, map, of } from 'rxjs';
-import { NewUser } from '../../../Models/NewUser';
+import { ChangeDetectionStrategy, Component, Input} from '@angular/core';
+import { Observable, map, of, tap } from 'rxjs';
 import { RegistrationSkillLevelComponent } from '../RegistrationSkillLevel/RegistrationSkillLevel.component';
+import { LoginDataService } from '../../../Services/LoginData.service';
 
 @Component({
   selector: 'app-skill-level-button',
@@ -11,20 +11,23 @@ import { RegistrationSkillLevelComponent } from '../RegistrationSkillLevel/Regis
     CommonModule, NgIf, RegistrationSkillLevelComponent
   ],
   templateUrl: './SkillLevelButton.component.html',
-  styleUrl: './SkillLevelButton.component.scss',
   changeDetection: ChangeDetectionStrategy.OnPush,
 })
 export class SkillLevelButtonComponent {
   @Input() Title:string = "";
   @Input() Subtitle:string = "";
   @Input() IconClassValue:string ="fa-chess";
-  @Input() TargetValue:number = -1;
-  @Input() currentSkillLevel:Observable<number> = of(-1);
-  @Output() skillLevelSelect = new EventEmitter<number>();
 
-  IsClicked:boolean = false;
+  // How it works: each button has a unique integer TargetValue.  
+  @Input() TargetValue:number = -1;
+  thisSkillLevelSelected: Observable<boolean> = this._userData.Pending.pipe(
+    map(value => value.SkillLevel == this.TargetValue),
+    // tap(value => console.log("Target value: "+this.TargetValue +" - selected: "+value))
+  );
+
   OnClick():void{
-    console.log("Skill level selected: " + this.TargetValue);
-    this.skillLevelSelect.emit(this.TargetValue);
+    // console.log("Skill level selected: " + this.TargetValue);
+    this._userData.SkillLevel = this.TargetValue;
   }
+  constructor(private _userData:LoginDataService){}
 }

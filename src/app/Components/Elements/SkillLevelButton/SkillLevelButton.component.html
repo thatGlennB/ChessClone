@@ -1,11 +1,11 @@
-<div class="d-flex justify-content-between border rounded m-2 bg-dark p-3" [class]="(currentSkillLevel|async)?'border-primary':'border-light'" (click)="OnClick()">
+<div class="d-flex justify-content-between border rounded m-2 bg-dark p-3" [class]="(thisSkillLevelSelected|async)?'border-primary':'border-light'" (click)="OnClick()">
     <div class="d-flex">
         <div class="d-flex flex-column">
             <h3 class="text-white">{{Title}}</h3>
             <span class="text-white" *ngIf="Subtitle.length > 0">{{Subtitle}}</span>
         </div>
         <div>
-            <i *ngIf="IsClicked" class="text-primary fa-solid fa-check"></i>
+            <i *ngIf="(thisSkillLevelSelected|async)" class="text-primary fa-solid fa-check"></i>
         </div>
     </div>
     <div class="d-flex align-items-center justify-content-center">

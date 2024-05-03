@@ -8,7 +8,6 @@ import { ChangeDetectionStrategy, Component } from '@angular/core';
     CommonModule,
   ],
   templateUrl: './RegistrationUsername.component.html',
-  styleUrl: './RegistrationUsername.component.scss',
   changeDetection: ChangeDetectionStrategy.OnPush,
 })
 export class RegistrationUsernameComponent { }

@@ -9,7 +9,7 @@ export class LoginDataService {
 
   constructor() 
   {
-    this._user = new BehaviorSubject<NewUser>(
+    this._confirmed = new BehaviorSubject<NewUser>(
       {
         Username: "",
         Password: "",
@@ -20,19 +20,31 @@ export class LoginDataService {
         SkillLevel: -1
       }
     )
+    this._pending = new BehaviorSubject<NewUser>(
+      this._confirmed.value
+    );
   }
 
-  private _user:BehaviorSubject<NewUser>
-  get UserData():Observable<NewUser>{
-    return this._user.asObservable();
+  private _confirmed:BehaviorSubject<NewUser>;
+  get Confirmed():Observable<NewUser>{
+    return this._confirmed.asObservable();
+  }
+
+  private _pending:BehaviorSubject<NewUser>;
+  get Pending():Observable<NewUser>{
+    return this._pending.asObservable();
   }
 
   set SkillLevel(value:number){
-    const previousValue = this._user.value;
+    const previousValue = this._pending.value;
     previousValue.SkillLevel = value;
-    this._user.next(
+    this._pending.next(
       previousValue
     );
+  }
+
+  Confirm(){
+    this._confirmed.next(this._pending.value);
   }
 
 }
