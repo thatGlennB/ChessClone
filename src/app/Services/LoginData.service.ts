@@ -44,6 +44,7 @@ export class LoginDataService {
   }
 
   Confirm(){
+    // console.log("update confirmed values")
     this._confirmed.next(this._pending.value);
   }
 

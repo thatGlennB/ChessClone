@@ -20,9 +20,11 @@ import { RegistrationUsernameComponent } from '../../Elements/RegistrationUserna
 export class RegistrationComponent {
 
   displayMode:Observable<number> = this._user.Confirmed.pipe(
+    // tap(value => console.log(value)),
     map<NewUser,number>(value => {
       if(value.SkillLevel < 0){
-        return 0;
+        // return 0;
+        return 1;
       } else if(value.Email == "" && value.Password == ""){
         return 1;
       } else if(value.Theme < 0){
