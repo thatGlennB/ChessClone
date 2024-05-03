@@ -1,7 +1,6 @@
 import { CommonModule } from '@angular/common';
 import { ChangeDetectionStrategy, Component } from '@angular/core';
 import { SkillLevelButtonComponent } from '../SkillLevelButton/SkillLevelButton.component';
-import { LoginDataService } from '../../../Services/LoginData.service';
 
 @Component({
   selector: 'app-registration-skill-level',

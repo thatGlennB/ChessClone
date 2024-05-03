@@ -12,7 +12,5 @@ $secondary: #403e3c;
 $theme-colors: map-merge($theme-colors, ("primary": $primary, "secondary": $secondary));
 
 
-
-
 /* Importing Bootstrap SCSS file. */
 @import '../node_modules/bootstrap/scss/bootstrap.scss';

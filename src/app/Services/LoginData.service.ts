@@ -21,7 +21,15 @@ export class LoginDataService {
       }
     )
     this._pending = new BehaviorSubject<NewUser>(
-      this._confirmed.value
+      {
+        Username: "",
+        Password: "",
+        Email: "",
+        Theme: -1,
+        Premium: false,
+        Notify: false,
+        SkillLevel: 0
+      }
     );
   }
 

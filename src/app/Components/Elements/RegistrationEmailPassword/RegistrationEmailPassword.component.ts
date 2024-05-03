@@ -8,6 +8,7 @@ import { ChangeDetectionStrategy, Component } from '@angular/core';
     CommonModule,
   ],
   templateUrl: './RegistrationEmailPassword.component.html',
+  styleUrl: './RegistrationEmailPassword.component.scss',
   changeDetection: ChangeDetectionStrategy.OnPush,
 })
 export class RegistrationEmailPasswordComponent { }

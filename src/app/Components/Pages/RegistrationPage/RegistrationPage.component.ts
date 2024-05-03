@@ -19,15 +19,15 @@ import { RegistrationUsernameComponent } from '../../Elements/RegistrationUserna
 })
 export class RegistrationComponent {
 
-  firstHeader:string="";
-  secondHeader:string="";
+  firstHeader:string="hot";
+  secondHeader:string="cold";
 
   displayMode:Observable<number> = this._user.Confirmed.pipe(
     map<NewUser,number>(value => {
       // TODO: can I move firstheader and secondheader to children, but have html tags on parent?
       if(value.SkillLevel < 0){
-        return 0;
-        // return 3;
+        // return 0;
+        return 3;
       } else if(value.Email == "" && value.Password == ""){
         return 1;
       } else if(value.Theme < 0){
