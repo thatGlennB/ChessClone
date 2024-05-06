@@ -1,6 +1,7 @@
 import { Injectable } from '@angular/core';
 import { NewUser } from '../Models/NewUser';
 import { BehaviorSubject, Observable } from 'rxjs';
+import { LoginCredentials } from '../Models/LoginCredentials';
 
 @Injectable({
   providedIn: 'root'
@@ -46,6 +47,14 @@ export class LoginDataService {
   set SkillLevel(value:number){
     const previousValue = this._pending.value;
     previousValue.SkillLevel = value;
+    this._pending.next(
+      previousValue
+    );
+  }
+  set Credentials(value:LoginCredentials){
+    const previousValue = this._pending.value;
+    previousValue.Email = value.email;
+    previousValue.Password = value.password;
     this._pending.next(
       previousValue
     );

@@ -27,7 +27,7 @@ export class RegistrationComponent {
       // TODO: can I move firstheader and secondheader to children, but have html tags on parent?
       if(value.SkillLevel < 0){
         // return 0;
-        return 3;
+        return 1;
       } else if(value.Email == "" && value.Password == ""){
         return 1;
       } else if(value.Theme < 0){
@@ -38,12 +38,10 @@ export class RegistrationComponent {
         return -1; 
       }
     }),
-    tap(value => console.log("Display mode: " + value))
+    // tap(value => console.log("Display mode: " + value))
   );
   OnSubmit(){
     this._user.Confirm();
   }
-  constructor(private _user:LoginDataService){
-
-  }
+  constructor(private _user:LoginDataService){}
  }

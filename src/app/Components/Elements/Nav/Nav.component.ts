@@ -14,6 +14,6 @@ import { NgbNavModule } from '@ng-bootstrap/ng-bootstrap';
 })
 export class NavComponent {
     OnClick():void{
-      console.log("click");
+      // console.log("click");
     }
  }
