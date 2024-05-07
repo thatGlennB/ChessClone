@@ -1,0 +1,7 @@
+<div [style]="'background-image: url(' + TargetBackgroundImageSource + ');'" class="my-2 py-4 ps-3 d-flex justify-content-between border border-light rounded" (click)="OnClick()">
+    <div class="d-flex">
+        <p class="text-white m-0">{{TargetLabel}}</p>
+        <i *ngIf="(ThemeSelected|async)" class="fa-solid fa-check fa-xl text-primary"></i>
+    </div>
+    <img [src]="TargetImageSource" alt="Chessboard image">
+</div>

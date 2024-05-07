@@ -44,6 +44,14 @@ export class LoginDataService {
     return this._pending.asObservable();
   }
 
+  set Theme(value:number){
+    const previousValue = this._pending.value;
+    previousValue.Theme = value;
+    this._pending.next(
+      previousValue
+    )
+  }
+
   set SkillLevel(value:number){
     const previousValue = this._pending.value;
     previousValue.SkillLevel = value;
