@@ -3,12 +3,13 @@ import { ChangeDetectionStrategy, Component, EventEmitter, Output, ViewChild } f
 import { FormsModule, NgModel, NgForm } from '@angular/forms';
 import { LoginCredentials } from '../../../Models/LoginCredentials';
 import { LoginDataService } from '../../../Services/LoginData.service';
+import { EmailNotAvailableDirective } from '../../../Directives/CustomValidators/EmailNotAvailable.directive';
 
 @Component({
   selector: 'app-registration-email-password',
   standalone: true,
   imports: [
-    CommonModule, FormsModule
+    CommonModule, FormsModule, EmailNotAvailableDirective
   ],
   templateUrl: './RegistrationEmailPassword.component.html',
   changeDetection: ChangeDetectionStrategy.OnPush,

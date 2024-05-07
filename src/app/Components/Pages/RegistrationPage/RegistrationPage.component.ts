@@ -27,12 +27,14 @@ export class RegistrationComponent {
       // TODO: can I move firstheader and secondheader to children, but have html tags on parent?
       if(value.SkillLevel < 0){
         // return 0;
-        return 2;
+        return 1;
       } else if(value.Email == "" && value.Password == ""){
+        // TODO http request to check if email is valid
         return 1;
       } else if(value.Theme < 0){
         return 2;
       } else if(value.Username == ""){
+        // TODO http request to check if username is valid
         return 3;
       } else {
         return -1; 
