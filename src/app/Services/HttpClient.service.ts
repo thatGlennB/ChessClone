@@ -13,16 +13,11 @@ export class HttpClientService {
   IsValidEmail(email:string):Observable<boolean>{
     let params = new HttpParams().set('email', email);
     return this._client.get<boolean>(`${URL_DOMAIN}/emailValid`, {params: params})
-    .pipe(
-      tap(value => console.log("IsValidEmail Http Response: "+value))
-    )
   }
 
-  IsValidUsername(username:string){
+  IsValidUsername(username:string):Observable<boolean>{
     let params = new HttpParams().set('username', username);
-    let result = this._client.get(`${URL_DOMAIN}/usernameValid`, {params: params});
-    // console.log("API query usernameValid result: "+result);
-    return result;
+    return this._client.get<boolean>(`${URL_DOMAIN}/usernameValid`, {params: params});   
   }
 
   constructor(private _client:HttpClient) { }
