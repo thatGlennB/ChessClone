@@ -1,8 +1,8 @@
 import { HttpClient, HttpParams } from '@angular/common/http';
 import { Injectable } from '@angular/core';
-import { tap } from 'rxjs';
+import { Observable, tap } from 'rxjs';
 
-const URL_DOMAIN:string = "http://localhost:5249/UserAccess/"
+const URL_DOMAIN:string = "http://localhost:5249/UserAccess"
 
 @Injectable({
   providedIn: 'root'
@@ -10,17 +10,12 @@ const URL_DOMAIN:string = "http://localhost:5249/UserAccess/"
 
 
 export class HttpClientService {
-  IsValidEmail(email:string):boolean{
+  IsValidEmail(email:string):Observable<boolean>{
     let params = new HttpParams().set('email', email);
-    let result:boolean = false;
-    this._client.get<boolean>(`${URL_DOMAIN}/emailValid`, {params: params})
+    return this._client.get<boolean>(`${URL_DOMAIN}/emailValid`, {params: params})
     .pipe(
-      tap(value => console.log(value))
+      tap(value => console.log("IsValidEmail Http Response: "+value))
     )
-    .subscribe(value => 
-      result = value
-    );
-    return result;
   }
 
   IsValidUsername(username:string){

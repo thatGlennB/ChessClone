@@ -19,7 +19,6 @@ export class RegistrationEmailPasswordComponent {
   @ViewChild('passwordInput') passwordModel:NgModel | undefined;
   model:LoginCredentials = {email:"",password:""};
   OnChange(){
-    console.log("change");
     if(!this.emailModel){ return };
     if(!this.passwordModel){ return};
     if(!this.emailModel.invalid && !this.passwordModel.invalid){ 
