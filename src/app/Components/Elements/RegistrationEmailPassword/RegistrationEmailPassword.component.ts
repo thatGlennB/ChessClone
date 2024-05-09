@@ -1,6 +1,6 @@
-import { CommonModule } from '@angular/common';
-import { ChangeDetectionStrategy, Component, EventEmitter, Output, ViewChild } from '@angular/core';
-import { FormsModule, NgModel, NgForm } from '@angular/forms';
+import { CommonModule, NgFor } from '@angular/common';
+import { ChangeDetectionStrategy, ChangeDetectorRef, Component, ViewChild } from '@angular/core';
+import { FormsModule, NgModel } from '@angular/forms';
 import { LoginCredentials } from '../../../Models/LoginCredentials';
 import { LoginDataService } from '../../../Services/LoginData.service';
 import { EmailNotAvailableDirective } from '../../../Directives/CustomValidators/EmailNotAvailable.directive';
@@ -9,7 +9,7 @@ import { EmailNotAvailableDirective } from '../../../Directives/CustomValidators
   selector: 'app-registration-email-password',
   standalone: true,
   imports: [
-    CommonModule, FormsModule, EmailNotAvailableDirective
+    CommonModule, FormsModule, EmailNotAvailableDirective, NgFor
   ],
   templateUrl: './RegistrationEmailPassword.component.html',
   changeDetection: ChangeDetectionStrategy.OnPush,
@@ -26,5 +26,6 @@ export class RegistrationEmailPasswordComponent {
       this._data.Credentials = this.model;
     }
   }
-  constructor(private _data:LoginDataService){}
+  constructor(private _data:LoginDataService){
+  }
 }
