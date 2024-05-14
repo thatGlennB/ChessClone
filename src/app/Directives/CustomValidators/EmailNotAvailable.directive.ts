@@ -17,8 +17,7 @@ import { BehaviorSubject, Observable, debounceTime, map, tap } from 'rxjs';
 export class EmailNotAvailableDirective implements AsyncValidator {
   constructor(private _client:HttpClientService){}
   validate(control: AbstractControl<any, any>): Promise<ValidationErrors | null> | Observable<ValidationErrors | null> {
-    let output:BehaviorSubject<ValidationErrors | null> = new BehaviorSubject<ValidationErrors | null>(null);
-    
+        
     // ensure control value is string
     if(typeof control.value == "string"){
       // http get - is email already registered?
