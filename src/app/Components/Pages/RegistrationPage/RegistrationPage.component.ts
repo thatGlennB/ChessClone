@@ -7,6 +7,7 @@ import { LoginDataService } from '../../../Services/LoginData.service';
 import { Observable, map, tap } from 'rxjs';
 import { NewUser } from '../../../Models/NewUser';
 import { RegistrationUsernameComponent } from '../../Elements/RegistrationUsername/RegistrationUsername.component';
+import { HttpClientService } from '../../../Services/HttpClient.service';
 
 @Component({
   selector: 'app-registration-page',
@@ -26,8 +27,8 @@ export class RegistrationComponent {
     map<NewUser,number>(value => {
       // TODO: can I move firstheader and secondheader to children, but have html tags on parent?
       if(value.SkillLevel < 0){
-        // return 0;
-        return 3;
+        return 0;
+        // return 3;
       } else if(value.Email == "" && value.Password == ""){
         return 1;
       } else if(value.Theme < 0){
@@ -42,6 +43,11 @@ export class RegistrationComponent {
   );
   OnSubmit(){
     this._user.Confirm();
+    if(this._user.IsComplete()){
+      this._user.Confirmed.subscribe(value =>
+        this._client.RegisterNewUser(value)
+      );
+    }
   }
-  constructor(private _user:LoginDataService){}
+  constructor(private _user:LoginDataService,private _client:HttpClientService){}
  }

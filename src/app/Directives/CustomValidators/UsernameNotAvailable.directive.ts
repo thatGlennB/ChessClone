@@ -1,6 +1,6 @@
 import { Directive } from '@angular/core';
 import { AbstractControl, AsyncValidator, NG_ASYNC_VALIDATORS, ValidationErrors } from '@angular/forms';
-import { BehaviorSubject, Observable, debounce, debounceTime, map, tap } from 'rxjs';
+import { BehaviorSubject, Observable, debounceTime, map, tap } from 'rxjs';
 import { HttpClientService } from '../../Services/HttpClient.service';
 
 @Directive({
@@ -23,7 +23,7 @@ export class UsernameNotAvailableDirective implements AsyncValidator {
       // Http-get request - check if username is available. If not, return error.
       return this._client.IsValidUsername(control.value).pipe(
         debounceTime(1000),
-        tap(value => console.log("valid: "+value)),
+        // tap(value => console.log("valid: "+value)),
         map(value => value ? null : {'available':true})
       );
     }
