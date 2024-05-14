@@ -1,16 +1,14 @@
 import { Directive } from '@angular/core';
 import { AbstractControl, AsyncValidator, NG_ASYNC_VALIDATORS, ValidationErrors } from '@angular/forms';
 import { BehaviorSubject, Observable, debounce, debounceTime, map, tap } from 'rxjs';
-import { EmailNotAvailableDirective } from './EmailNotAvailable.directive';
 import { HttpClientService } from '../../Services/HttpClient.service';
-import { TmplAstSwitchBlockCase } from '@angular/compiler';
 
 @Directive({
   selector: '[appUsernameNotAvailable]',
   providers: [
     {
       provide: NG_ASYNC_VALIDATORS,
-      useExisting: EmailNotAvailableDirective,
+      useExisting: UsernameNotAvailableDirective,
       multi: true,
     }
   ],
@@ -18,10 +16,10 @@ import { TmplAstSwitchBlockCase } from '@angular/compiler';
 })
 export class UsernameNotAvailableDirective implements AsyncValidator {
   validate(control: AbstractControl<any, any>): Promise<ValidationErrors | null> | Observable<ValidationErrors | null> {
-    let result:BehaviorSubject<ValidationErrors | null> = new BehaviorSubject<ValidationErrors | null>(null);
+    
     
     // If control value is something other than string, return no errors
-    if(typeof control.value != "string"){
+    if(typeof control.value == "string"){
       // Http-get request - check if username is available. If not, return error.
       return this._client.IsValidUsername(control.value).pipe(
         debounceTime(1000),
@@ -34,7 +32,7 @@ export class UsernameNotAvailableDirective implements AsyncValidator {
     return new BehaviorSubject<ValidationErrors | null>(null).asObservable();
   }
   registerOnValidatorChange?(fn: () => void): void {
-    throw new Error('Method not implemented.');
+    // throw new Error('Method not implemented.');
   }
   constructor(private _client:HttpClientService){}
 }

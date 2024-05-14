@@ -1,7 +1,15 @@
 <h1 class="text-white display-6 text-center mt-5">Choose a username</h1>
 <h5 class="text-white-50 text-center my-4">This is what your friends and other players will see when you play</h5>
 <div>
-    <input class="form-control my-3" type="text" placeholder="Username">
+    <input [(ngModel)]="username" class="form-control my-3" type="text" placeholder="Username" #usernameInput="ngModel" required minlength="1" maxlength="50" appUsernameNotAvailable (blur)="OnFormEntry()">
+</div>
+<div class="text-white" [hidden]="usernameInput.pristine || usernameInput.valid ">
+    <div *ngIf="usernameInput.hasError('required')">
+        A username is required
+    </div>
+    <div *ngIf="usernameInput.hasError('available')">
+        The username 
+    </div>
 </div>
 <div>
     <input class="m-3" type="checkbox" id="specialOffers">

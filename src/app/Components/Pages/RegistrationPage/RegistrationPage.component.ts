@@ -33,7 +33,6 @@ export class RegistrationComponent {
       } else if(value.Theme < 0){
         return 2;
       } else if(value.Username == ""){
-        // TODO http request to check if username is valid
         return 3;
       } else {
         return -1; 

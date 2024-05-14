@@ -67,6 +67,13 @@ export class LoginDataService {
       previousValue
     );
   }
+  set Username(value:string){
+    const previousValue = this._pending.value;
+    previousValue.Username = value
+    this._pending.next(
+      previousValue
+    );
+  }
 
   Confirm(){
     // console.log("update confirmed values")
