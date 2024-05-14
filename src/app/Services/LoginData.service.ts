@@ -74,6 +74,22 @@ export class LoginDataService {
       previousValue
     );
   }
+  set Notify(value:boolean){
+    const previousValue = this._pending.value;
+    previousValue.Notify = value
+    this._pending.next(
+      previousValue
+    );
+  }
+
+  IsComplete():boolean{
+    let confirmed:NewUser = this._confirmed.value;
+    return confirmed.Email.length > 0 &&
+            confirmed.Password.length > 0 &&
+            confirmed.Username.length > 0 &&
+            confirmed.SkillLevel >= 0 &&
+            confirmed.Theme >= 0
+  }
 
   Confirm(){
     // console.log("update confirmed values")
